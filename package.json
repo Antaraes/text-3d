@@ -11,7 +11,9 @@
     "prepare": "husky && husky install"
   },
   "dependencies": {
+    "@radix-ui/react-progress": "^1.0.3",
     "@radix-ui/react-slot": "^1.0.2",
+    "@radix-ui/react-tooltip": "^1.0.7",
     "@tanstack/react-query": "^5.36.2",
     "axios": "^1.6.8",
     "class-variance-authority": "^0.7.0",
@@ -22,12 +24,16 @@
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
+    "react-hook-form": "^7.51.4",
+    "react-hot-toast": "^2.4.1",
     "tailwind-merge": "^2.3.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
+    "@hookform/resolvers": "^3.4.0",
     "@types/node": "^20.12.12",
     "@types/react": "^18",
     "@types/react-dom": "^18",

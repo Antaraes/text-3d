@@ -1,5 +1,5 @@
 import useFetch from '@/hooks/useFetch';
-import { getAllModels } from '@/services/api';
+import { getAllModels } from '@/services/api/api';
 import Image from 'next/image';
 import { FC, Key } from 'react';
 import Spinner from './common/Spinner';
@@ -30,28 +30,28 @@ const ProductList: FC<ProductListProps> = () => {
   if (isLoading) {
     <Spinner lg />;
   }
+  const lastNineItems = data ? data.slice(-9).reverse() : [];
   return (
     <div className=" grid grid-cols-3 gap-3">
-      {data &&
-        data.map(
-          (item: string | StaticImport, index: Key | null | undefined) => (
-            <motion.div
-              key={index}
-              variants={fadeInAnimationVariants}
-              initial="initial"
-              whileInView="animate"
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.8 }}
-              viewport={{
-                once: true,
-              }}
-              className="cursor-pointer"
-              custom={index}
-            >
-              <Image src={item} alt={`item${index}`} width={200} height={200} />
-            </motion.div>
-          )
-        )}
+      {lastNineItems.map(
+        (item: string | StaticImport, index: Key | null | undefined) => (
+          <motion.div
+            key={index}
+            variants={fadeInAnimationVariants}
+            initial="initial"
+            whileInView="animate"
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.8 }}
+            viewport={{
+              once: true,
+            }}
+            className="cursor-pointer"
+            custom={index}
+          >
+            <Image src={item} alt={`item${index}`} width={200} height={200} />
+          </motion.div>
+        )
+      )}
     </div>
   );
 };
